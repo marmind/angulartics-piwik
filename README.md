@@ -92,6 +92,9 @@ linkType can either be 'link' for an outlink or 'download' for a download, 'link
 
 Manually log a conversion for the numeric goal ID, with an optional numeric custom revenue customRevenue
 
+###setRequestMethod(method)
+
+Set the request method to either "GET" or "POST". (The default is "GET".) To use the POST request method, the Piwik host must be the same as the tracked website host (Piwik installed in the same domain as your tracked website).
 
 ###setUsername(username)
 

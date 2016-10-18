@@ -93,6 +93,15 @@
                         $window._paq.push(['trackLink', url, type]);
                     }
                 };
+                
+                // sets the xhr request method
+                // method can be either GET or POST. For POST to work correctly Piwik must be installed in the same domain as the tracked website.
+                // setRequestMethod(method);
+                $analyticsProvider.api.setRequestMethod = function (method) {
+                    if ($window._paq) {
+                        $window._paq.push(['setRequestMethod', method]);
+                    }
+                };
 
                 // Set default angulartics page and event tracking
 
