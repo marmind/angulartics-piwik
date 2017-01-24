@@ -126,7 +126,7 @@
                 $analyticsProvider.registerPageTrack(function(path, locationObj) {
 
                     if ($window._paq) {
-                        $window._paq.push(['setDocumentTitle', locationObj.path()]);
+                        $window._paq.push(['setDocumentTitle', locationObj.path() || path]);
                         $window._paq.push(['setCustomUrl', path]);
                         $window._paq.push(['trackPageView']);
                     }
