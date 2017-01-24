@@ -123,11 +123,18 @@
                 // });
 
                 // locationObj is the angular $location object
-                $analyticsProvider.registerPageTrack(function(path, locationObj) {
-
+                 $analyticsProvider.registerPageTrack(function(path, url, timeInMs) {
                     if ($window._paq) {
-                        $window._paq.push(['setDocumentTitle', locationObj.path() || path]);
+                        //state change $location object?
+                        if(url !== null && typeof url === 'object') {
+                            url = url.path() ? url.path() : path;
+                        }
+
+                        $window._paq.push(['setDocumentTitle', url]);
                         $window._paq.push(['setCustomUrl', path]);
+                        if(timeInMs)  {
+                            $window._paq.push(['setGenerationTimeMs', timeInMs]);
+                        }
                         $window._paq.push(['trackPageView']);
                     }
                 });
